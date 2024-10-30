@@ -1,6 +1,6 @@
 # 王药师的个人网站
 
-> Code by @DuckDuckStudio.
+> Code by [DuckDuckStudio](https://github.com/DuckDuckStudio/).
 
 | 部署 | 检查链接有效性 | 检查本地路径 |
 |-----|-----|-----|
