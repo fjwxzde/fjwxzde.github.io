@@ -1,0 +1,36 @@
+name: 生成 Sitemap
+
+# GitHub Action DuckDuckStudio/Sitemap_Creator 版本 1.0.5 示例工作流
+# https://github.com/marketplace/actions/sitemap-creator-stable
+# Under the [GNU Affero General Public License v3.0](https://github.com/DuckDuckStudio/Sitemap_Creator/blob/main/LICENSE)
+
+on:
+  push:
+    branches:
+      - main
+      # 当 main 分支上有新推送且以下文件被更改时
+    paths:
+      - '**/*.html'
+  workflow_dispatch: # 手动运行
+
+jobs:
+  generate_sitemap:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 更新网站地图
+        uses: DuckDuckStudio/Sitemap_Creator@1.0.5
+        with:
+          file_type: "html"
+          label: "DEV-已启用自动合并,工作流,DEV-开发分支合并"
+          auto_merge: "压缩合并"
+          debug: true # 启用调试输出
+          # 其他参数默认
+          # ignore_file: "啥都没有"
+          # website_path: "./"
+          # location: "./sitemap.xml"
+          # basic_link: "你的 GitHub Pages 网站地址"
+          # base_branch: "main"
+          # token: ${{ github.token }}
+          # timezone: "Asia/Shanghai"
+          # update: "拉取请求"

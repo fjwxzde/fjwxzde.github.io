@@ -1,0 +1,8 @@
+# IDE
+.vs/
+.vscode/
+.idea/
+
+# Test
+test.*
+test/
