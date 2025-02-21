@@ -13,6 +13,10 @@ on:
       - '**/*.html'
   workflow_dispatch: # 手动运行
 
+# 相关文档: https://docs.github.com/zh/actions/writing-workflows/choosing-what-your-workflow-does/controlling-permissions-for-github_token
+permissions:
+  contents: write # 允许修改仓库内容，例如提交、发行版等
+
 jobs:
   generate_sitemap:
     runs-on: ubuntu-latest
@@ -22,8 +26,7 @@ jobs:
         uses: DuckDuckStudio/Sitemap_Creator@1.0.5
         with:
           file_type: "html"
-          label: "DEV-已启用自动合并,工作流,DEV-开发分支合并"
-          auto_merge: "压缩合并"
+          update: "直接提交"
           debug: true # 启用调试输出
           # 其他参数默认
           # ignore_file: "啥都没有"
@@ -33,4 +36,3 @@ jobs:
           # base_branch: "main"
           # token: ${{ github.token }}
           # timezone: "Asia/Shanghai"
-          # update: "拉取请求"
