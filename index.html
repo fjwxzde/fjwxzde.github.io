@@ -26,7 +26,7 @@
                 align-items: center;
                 height: 100vh;
                 font-family: Arial, sans-serif;
-                /*滚动条（临时）*/
+                /* 滚动条（临时）*/
                 overflow: hidden;
             }
             
@@ -41,6 +41,23 @@
             img {
                 max-width: 100%;
                 height: auto;
+            }
+
+            /* 格言切换动画 */
+            @keyframes slideInFromLeft {
+                0% {
+                    transform: translateX(-100%);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+
+            #格言 {
+                animation: slideInFromLeft 1s ease-out;
+                display: inline-block;
             }
         </style>
     </head>
@@ -66,8 +83,35 @@
                 <img src="assets/pic/太极.png" alt="太极" width="30%" height="30%">
             </div>
             <p>欢迎合作、意见和建议！</p>
-            <div class="center-text" style="border: 2px solid black;border-color: rgb(255, 0, 0);">
-                <h1>鸟欲高飞先振翅，人求上进先读书。</h1>
+            <div class="center-text" style="border: 2px solid black; border-color: rgb(255, 0, 0);">
+                <!--
+                在此框中实现一定时间自动切换的个人格言显示
+                1. 切换方式: 从左侧插入
+                2. 格言：
+                  2.1 鸟欲高飞先振翅，人求上进先读书。
+                  2.2 道阻且长，行则将至，行而不辍，则未来可期
+                -->
+                <h2 id="格言"></h2>
+                <script>
+                    var arr = [
+                        "鸟欲高飞先振翅，人求上进先读书",
+                        "道阻且长，行则将至，行而不辍，则未来可期"
+                    ];
+                    var lastIdx = -1; // 保存上一次显示的格言索引
+                    function change() {
+                        var idx;
+                        do {
+                            idx = Math.floor(Math.random() * arr.length); // 随机选择一个索引
+                        } while (idx === lastIdx); // 确保不选择上一次的格言
+                        document.getElementById("格言").innerHTML = arr[idx];
+                        document.getElementById("格言").style.animation = 'none'; // 重置动画
+                        void document.getElementById("格言").offsetWidth; // 强制重绘
+                        document.getElementById("格言").style.animation = 'slideInFromLeft 1s ease-out'; // 重新应用动画
+                        lastIdx = idx; // 更新上一次的格言索引
+                    }
+                    change(); // 页面加载时立即调用一次change函数
+                    setInterval(change, 5000);
+                </script>
             </div>
         </div>
 
