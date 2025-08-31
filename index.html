@@ -65,7 +65,7 @@
         <!-- width / height only can use int. -->
         <div class="container" style="margin-top: 1%; margin-right: 1%; margin-left: 1%;">
             <!--
-            <div class="center-text">
+            <div style="text-align: center;">
                 // 在这里放文章展示图(如果有) //
                 // 放了展示图后请取消注释 //
             </div>
@@ -73,17 +73,17 @@
             -->
 
             <!-- 在这里放标题 -->
-            <div class="center-text">
+            <div style="text-align: center;">
                 <h1>王药师的个人网站</h1>
                 <!-- 在这里放副标题(可选) -->
             </div>
 
             <!-- 在这里放文章内容 -->
-            <div class="center-text">
+            <div style="text-align: center;">
                 <img src="assets/pic/太极.png" alt="太极" width="30%" height="30%">
             </div>
             <p>欢迎合作、意见和建议！</p>
-            <div class="center-text" style="border: 2px solid black; border-color: rgb(255, 0, 0);">
+            <div style="text-align: center; border: 2px solid black; border-color: rgb(255, 0, 0);">
                 <!--
                 在此框中实现一定时间自动切换的个人格言显示
                 1. 切换方式: 从左侧插入
@@ -109,7 +109,7 @@
                         document.getElementById("格言").style.animation = 'slideInFromLeft 1s ease-out'; // 重新应用动画
                         lastIdx = idx; // 更新上一次的格言索引
                     }
-                    change(); // 页面加载时立即调用一次change函数
+                    change(); // 页面加载时立即调用一次 change 函数
                     setInterval(change, 5000);
                 </script>
             </div>
@@ -117,7 +117,7 @@
 
         <!-- 页脚 -->
         <div class="container" style="margin-bottom: 1%; margin-right: 1%; margin-left: 1%;">
-            <div class="center-text" style="font-size: 30px;">
+            <div style="text-align: center; font-size: 30px;">
                 <p>THANK</p>
                 <p>YOU</p>
             <div>
